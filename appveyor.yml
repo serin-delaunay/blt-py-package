@@ -1,1 +1,17 @@
 
+version: 1.0.{build}
+skip_branch_with_pr: true
+init:
+- cmd: PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%
+environment:
+  PYTHON: C:\Python34
+install:
+- cmd: pip install py2exe bearlibterminal
+cache: C:\Python34\Lib\site-packages
+build_script:
+- cmd: build_exe Script.py
+test_script:
+- cmd: >-
+    python Script.py
+
+    dist\Script.exe
